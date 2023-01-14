@@ -54,6 +54,9 @@ def download_spec_file(file_name,url):
 #################
 try:
     argv = sys.argv[1:]
+    if len(argv) == 0:
+        raise Exception
+
     opts, args = getopt.getopt(argv, "hldn:v:")
     download_spec   = False
     list_specs      = False
@@ -96,6 +99,7 @@ try:
             print("Error: Invalid arguments")
         
         
+    
     url     = "https://www.3gpp.org/ftp/Specs/archive/" + spec_series + "/" + spec_number + "/"
     headers ={'user-agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'}
     
